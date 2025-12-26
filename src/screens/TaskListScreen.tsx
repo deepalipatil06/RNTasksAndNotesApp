@@ -44,13 +44,13 @@ export default function TaskListScreen({ navigation }: Props) {
 
   const renderItem = useCallback(
     ({ item }: { item: Todo }) => (
-      <View>
-        <TaskItem item={item} onToggle={onToggle} onPress={onPress} />
-        <View style={{ paddingHorizontal: 16, paddingBottom: 8 }}>
-          <Pressable onPress={() => onDelete(item.id)}>
-            <Text style={{ color: '#b00020' }}>Delete</Text>
-          </Pressable>
+      <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12 }}>
+        <View style={{ flex: 1 }}>
+          <TaskItem item={item} onToggle={onToggle} onPress={onPress} />
         </View>
+        <Pressable onPress={() => onDelete(item.id)} style={{ marginLeft: 8 }}>
+          <Text style={{ color: '#b00020', fontWeight: '600' }}>Delete</Text>
+        </Pressable>
       </View>
     ),
     []
